@@ -55,4 +55,3 @@ if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])){
 	}
 
 }
-

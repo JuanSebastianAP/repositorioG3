@@ -130,7 +130,7 @@ class GetController{
 
 				'status' => 404,
 				'results' => 'Not Found',
-				'method' => 'juan'
+				'method' => 'get'
 
 			);
 

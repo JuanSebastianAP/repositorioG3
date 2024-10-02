@@ -1,33 +1,27 @@
 <?php
+class PutController {
+     /* Petición PUT para actualizar datos */
+     static public function putData($table, $data, $id, $nameId) {
+        $response = PutModel::putData($table, $data, $id, $nameId);
+        $return = new PutController();
+        $return->fncResponse($response);
+    }
 
- class PutController{
+    public function fncResponse($response) {
+        if (!empty($response)) {
+            $json = array(
+                'status' => 200,
+                'result' => $response
+            );
+        } else {
+            $json = array(
+                'status' => 404,
+                'result' => 'not found'
+            );
+        }
 
-static public function putData($table, $data,$id, $nameId){
-    $response=PutModel::putData($table, $data,$id, $nameId);
-
-    $return =new PutController();
-    $return->fncResponse();
-}
-static public function fncResponse(){
- if(!empty($response)){
-    $json=array(
-        'status'=>200,
-        'result'=>$response
-    );
-
- }else{
-
-    $json =array(
-        'staus'=>404,
-        'result'=>'Not Found',
-        'method'=>'put'
-    );
-
- }
- echo json_encode($json,http_response_code($json["status"]));
-
+        echo json_encode($json, http_response_code($json["status"]));
+    }
 }
 
-}
-
-
+?>

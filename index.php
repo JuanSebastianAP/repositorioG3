@@ -1,19 +1,14 @@
 <?php
-/* logo de errores para valdiad el funcionamiento de la api*/ 
-ini_set('display_errors', 1);
-ini_set("log_errors", 1);
-ini_set("error_log",  "c:/xampp/htdocs/api/php_error_log");
+header('Acces-Control-Allow-Origin:*');
+header('Acces-Control-Allow-Credentials:true');
+header('Acces-Control-Allow-Headers:Origin, x-requested-whit,content-type,Accept,Autorization');
+header('Acces-Control-Allow-Methods:GET,POST,PUT,DELETE');//TAREA: montar la api en un hostin consumir api, verificar errores de cors
+header('content-type:Aplication/json charset=utf-8');
 
-/* corss */ 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Credentials: true');
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE,OPTIONS');
-header('content-type: application/json; charset=utf-8');
+/* llamamos a nuetsro routers controller */
 
-/* llamamos a nuestro routes controler */
-require_once "controllers/routes.controllers.php";
+require_once "controllers/routes.controller.php";
+$index=new RoutesController();
+$index->index();
 
-$index = new RoutesController();
-$index -> index();
 ?>

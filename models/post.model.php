@@ -1,37 +1,35 @@
 <?php
-require_once "connection.php";
+require_once "Connection.php";
 
 class PostModel{
-    
-
-    /* crear un peticion por para crear datos de forma dinamimca */
-
+    /* crear una peticion para crear datos de forma dinamic*/
     static public function postData($table, $data){
-        $columns="";
-        $paramns= "";
-        foreach($data as $key => $value){
-             $columns .=$key.",";
-             $paramns .=":".$key. ",";
-        }
-        $columns = substr($columns, 0, -1);
-        $paramns = substr($paramns, 0 , -1);
-        $sql="INSERT INTO $table ($columns) VALUE ($paramns)";
-        $link = Connection::connect();
-        $stmp=$link->prepare($sql);
-        foreach($data as $key=> $value){
-            $stmp -> bindParam(":".$key, $data[$key],PDO::PARAM_STR);
-        }
-        if($stmp->execute()){
-            $response= array(
-                "lastaId"=> $link -> lastInsertId(),
-                "coment" => "proceso exitoso"
-            );   
-            return $response;
+    $columns = "";
+    $params = "";
+    foreach($data as $key => $value){
+        $columns .=$key.",";
+        $params .=":".$key.",";
+    }
+    $columns = substr($columns, 0 -1);
+    $columns = substr($params, 0 ,-1);
+
+    $sql="INSERT INTO $table ($columns) VALUE ($params)";
+
+    $link = Connection::connect();
+    $stmp=$link ->prepare($sql);
+    foreach($data as $key => $value){
+        $stmp ->bindParam(":".$key,$data[$key],PDO::PARAM_STR);
+    }
+        if ($stmp ->execute()){
+        $response=array(
+            "lastaId"=>$link -> lastInsertId(),
+            "coment" =>"proceso exitoso"
+        );
+        return $response;
         }else{
-            return $link->errorInfo();
+        return $link->errorInfo();
         }
     }
+
 }
-
-
 ?>
