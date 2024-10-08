@@ -4,6 +4,7 @@ require_once "get.model.php";
 
 class Connection
 {
+
 	/*=============================================
 	Información de la base de datos
 	=============================================*/
@@ -13,9 +14,9 @@ class Connection
 
 		$infoDB = array(
 
-			"database" => "infos",
-			"user" => "root",
-			"pass" => ""
+			"database" => "u145597152_grupotres",
+			"user" => "u145597152_ugrupotres",
+			"pass" => "&bJ0NwIn"
 
 		);
 
@@ -38,7 +39,7 @@ class Connection
 	static public function publicAccess()
 	{
 
-		$tables = [""];
+		$tables = ["usuarios", "barrios", "intructors"];
 
 		return $tables;
 	}
@@ -129,14 +130,15 @@ class Connection
 	Generar Token de Autenticación
 	=============================================*/
 
-	/*static public function jwt($id, $email){
+	static public function jwt($id, $email)
+	{
 
 		$time = time();
 
 		$token = array(
 
-			"iat" =>  $time,//Tiempo en que inicia el token
-			"exp" => $time + (60*60*24), // Tiempo en que expirará el token (1 día)
+			"iat" =>  $time, //Tiempo en que inicia el token
+			"exp" => $time + (60 * 60 * 24), // Tiempo en que expirará el token (1 día)
 			"data" => [
 
 				"id" => $id,
@@ -146,7 +148,7 @@ class Connection
 		);
 
 		return $token;
-	}*/
+	}
 
 	/*=============================================
 	Validar el token de seguridad
