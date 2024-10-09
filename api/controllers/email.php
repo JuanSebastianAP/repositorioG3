@@ -50,7 +50,65 @@ class EmailSender {
 
     private function getEmailTemplate($code){
 
-    
+        return "
+        <html>
+        <head>
+            <title>Restablecer Contraseña</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                    color: #333;
+                }
+                .container {
+                    max-width: 600px;
+                    margin: auto;
+                    background: white;
+                    padding: 20px;
+                    border-radius: 5px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+                .header {
+                    text-align: center;
+                    background-color: #007BFF;
+                    color: white;
+                    padding: 10px 0;
+                    border-radius: 5px 5px 0 0;
+                }
+                .footer {
+                    text-align: center;
+                    font-size: 12px;
+                    color: #777;
+                    margin-top: 20px;
+                }
+                a.button {
+                    display: inline-block;
+                    padding: 10px 15px;
+                    background-color: #007BFF;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <div class='header'>
+                    <h1>Restablecer Contraseña</h1>
+                </div>
+                <p>Hola,</p>
+                <p>Para restablecer tu contraseña, haz clic en el siguiente enlace:</p>
+                <a class='button' href='$code'>Restablecer Contraseña</a>
+                <p>Si no solicitaste un cambio de contraseña, ignora este correo.</p>
+                <div class='footer'>
+                    <p>Gracias,</p>
+                    <p>El equipo de soporte.</p>
+                </div>
+            </div>
+        </body>
+        </html>
+    ";
+
     }
 
 }
