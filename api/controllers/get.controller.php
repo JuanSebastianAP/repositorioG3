@@ -111,6 +111,14 @@ class GetController
 	}
 
 	/*=============================================
+	Peticiones GET para validar contraseña
+	=============================================*/
+	static public function getDataClave($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
+		$response = GetModel::getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
+		return $response;
+	}
+
+	/*=============================================
 	Respuestas del controlador
 	=============================================*/
 
