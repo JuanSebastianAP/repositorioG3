@@ -30,7 +30,7 @@ class EmailSender {
         $this->mailer->isHTML(true);
     }
 
-    private function sendRecoveryCode($to, $code){
+    public function sendRecoveryCode($to, $code){
         try{
         $this->mailer -> addAddress($to);
         $this->mailer -> Subject = 'Código de recuperación de contraseña';
