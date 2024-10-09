@@ -20,13 +20,13 @@ class EmailSender {
         $this->mailer->isSMTP();
         $this->mailer->Host       = 'smtp.hostinger.com';
         $this->mailer->SMTPAuth   = true;
-        $this->mailer->Username   = 'jdc@tunjatienevoz.com';
-        $this->mailer->Password   = 'Jdc.email.2024';
+        $this->mailer->Username   = 'grupo3@ujdc.online';
+        $this->mailer->Password   = '?e1Dhiwwc';
         $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Cambia a SMTPS
         $this->mailer->Port       = 465;
         $this->mailer->CharSet    = 'UTF-8';
         $this->mailer->Timeout    = 30; // Añade un timeout
-        $this->mailer->setFrom('jdc@tunjatienevoz.com', 'cambio calve jdc');
+        $this->mailer->setFrom('grupo3@ujdc.online ', 'cambio clave jdc');
         $this->mailer->isHTML(true);
     }
 
